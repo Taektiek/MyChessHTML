@@ -46,7 +46,16 @@ body {
 }
 
 .square.black.selected {
-    background-color: #a5dd6c;
+    background-color: #97ce61;
+}
+
+.piece {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    height: 70px;
+    width: 70px;
 }
 
 .possible {
