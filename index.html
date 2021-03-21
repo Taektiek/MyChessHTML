@@ -9,24 +9,11 @@
     <title>Chess Online Bru</title>
 </head>
 <body>
+    <script src="scripts/chess.js" defer></script>
+    <script src="scripts/stockfish.js" defer></script>
     <script src="scripts/script.js" defer></script>
+    <button onclick="main();">Start</button>
     <div class="board">
-        <div class="square white" onclick="on_square_click(this);"><div class="piece rook white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece knight white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece bishop white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece king white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece queen white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece bishop white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece knight white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece rook white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn white"></div></div>
         <div class="square white" onclick="on_square_click(this);"></div>
         <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
@@ -46,7 +33,23 @@
         <div class="square white" onclick="on_square_click(this);"></div>
         <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="possible"></div></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
         <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
@@ -54,27 +57,27 @@
         <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
         <div class="square black" onclick="on_square_click(this);"></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="possible"></div></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
         <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
         <div class="square black" onclick="on_square_click(this);"></div>
         <div class="square white" onclick="on_square_click(this);"></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square black selected" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece pawn black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece rook black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece knight black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece bishop black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece king black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece queen black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece bishop black"></div></div>
-        <div class="square black" onclick="on_square_click(this);"><div class="piece knight black"></div></div>
-        <div class="square white" onclick="on_square_click(this);"><div class="piece rook black"></div></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
+        <div class="square black" onclick="on_square_click(this);"></div>
+        <div class="square white" onclick="on_square_click(this);"></div>
    </div>
 </body>
 </html>

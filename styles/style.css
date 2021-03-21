@@ -15,11 +15,25 @@ body {
     transform: translate(-50%, -50%);
 }
 
+@keyframes flip {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(360deg);
+    }
+}
+
 .square {
     background-color: #769656;
 
     width: 70px;
     height: 70px;
+
+    margin: 0px;
+
+    /* animation-name: flip;
+    animation-duration: 2s; */
 
     display: grid;
     place-items: center;
