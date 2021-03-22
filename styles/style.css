@@ -31,7 +31,7 @@ body {
 .square {
     background-color: #769656;
 
-    max-width: var(--square-size);
+    width: var(--square-size);
     height: var(--square-size);
 
     margin: 0px;
