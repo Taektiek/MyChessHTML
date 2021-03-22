@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="styles/pieces.css">
     <title>HTML Chess Program</title>
 </head>
-<body>
+<body onresize="resize();">
     <script src="scripts/chess.js" defer></script>
     <script src="scripts/stockfish8.js" defer></script>
     <script src="scripts/script.js" defer></script>
+    <script src="scripts/resize.js"></script>
+    <script>resize();</script>
     <button onclick="main();">Start</button>
     <div class="board">
         <div class="square white" onclick="on_square_click(this);"></div>

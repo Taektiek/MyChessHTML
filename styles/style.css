@@ -6,6 +6,10 @@ body {
     background-color: #4b4847;
 }
 
+:root {
+    --square-size: 30px;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(8, auto);
@@ -27,8 +31,8 @@ body {
 .square {
     background-color: #769656;
 
-    width: 70px;
-    height: 70px;
+    max-width: var(--square-size);
+    height: var(--square-size);
 
     margin: 0px;
 
@@ -68,8 +72,8 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
 
-    height: 70px;
-    width: 70px;
+    height: var(--square-size);
+    width: var(--square-size);
 }
 
 .possible {
