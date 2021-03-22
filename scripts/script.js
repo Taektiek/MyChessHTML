@@ -1,5 +1,5 @@
 const chess = new Chess();
-const engine = new Worker('scripts/stockfish.js')
+var engine = STOCKFISH();
 
 let board = document.getElementsByClassName('square');
 
@@ -7,16 +7,26 @@ chess.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
 update_board();
 
-// engine.postMessage("uci");
-// engine.postMessage("ucinewgame");
-// engine.postMessage("isready");
-// engine.postMessage("pos " + chess.fen() + " moves");
-// engine.postMessage("go depth 3");
-// engine.postMessage("bestmove");
+engine.postMessage('uci');
+engine.postMessage('isready');
+engine.postMessage('ucinewgame');
+engine.postMessage('setoption name Skill Level value 10')
+engine.postMessage('setoption name Skill Level Maximum Error value 1')
+engine.postMessage('setoption name Skill Level Probability Value 10')
 
-// engine.onmessage = function(event) {
-//     console.log(event.data);
-// }
+engine.onmessage = function(event) {
+    // const move = event.match;
+    if (event.split(' ')[0] === "bestmove") {
+        console.log(event.split(' ')[1])
+        chess.move(event.split(' ')[1], {"sloppy": true});
+        update_board();
+    }
+}
+
+function getBestStockfishMove() {
+    engine.postMessage('position fen ' + chess.fen());
+    engine.postMessage('go depth 3');
+}
 
 function update_board() {
     for (let i in chess.board()) {
@@ -79,11 +89,7 @@ const timer = ms => new Promise(res => setTimeout(res, ms))
 
 async function main() {
     while (!chess.game_over()) {
-        const moves = chess.moves();
-        const move = moves[Math.floor(Math.random() * moves.length)];
-        console.log(move);
-        chess.move(move);
-        update_board();
+        getBestStockfishMove();
         await timer(500);
     }
 }
